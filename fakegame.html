@@ -33,7 +33,7 @@
         });
         
         $("#connect").button().click(function(){
-            socket=io.connect('http://'+window.location.host+':8415/server');
+            socket=io.connect('http://gtacad.aws.af.cm:8415/server');
             socket.on("GetUnitID", function(){
                 socket.emit("unitID", {data: {unitID:$("#unitID").val()}});
             });
