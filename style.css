@@ -1,0 +1,136 @@
+html{
+	overflow: hidden;
+	height: 100%;
+}
+
+body{
+	background: #121211;
+	color: #FFFFFF;
+	overflow: hidden;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#unitDisplay{
+	background: #777;
+	width: 200px;
+	top: 0;
+	bottom: 10px;
+	position: absolute;
+}
+
+#map{
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    left: 210px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.blip{
+	-webkit-transition: top .5s linear, left .5s linear;
+    height: 30px;
+    width: 30px;
+    background: #f00;
+    position: absolute;
+    top: 2556px;
+    left: 2556px;
+}
+
+[title="marker"]
+{
+	-webkit-transition: top .5s linear, left .5s linear;
+}
+
+.fakeGameLabel{
+    clear: left;
+    float: left;
+}
+
+.fakeGameInput{
+    float: left;
+    margin-left: 30px;
+    clear: left;
+    margin-bottom: 10px;
+}
+
+.unitDisplay{
+    float: left;
+    clear: left;
+    padding-left: 6px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-top: 1px solid #000;
+}
+
+.unitDisplay:hover{
+    cursor: default;
+}
+
+.unitDisplay .unitID{
+    background: #000;
+    -moz-border-bottom-left-radius: 6px;
+    -moz-border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 0 5px;
+    font-size: 24px;
+    float: left;
+    display: block;
+}
+
+.unitDisplay .unitName{
+    margin-left: 6px;
+    float: left;
+    display: block;
+    margin-top: 5px;
+}
+
+.unitDisplay .unitLocation{
+    float: left;
+    clear: left;
+    margin-left: 10px;
+    font-size: 11px;
+}
+
+.infoWindow{
+	color: #000;
+}
+
+.unitDisplay .unitID { border: 1px solid #666666; border-top: none; background: #000000 url(ui-darkness/images/ui-bg_gloss-wave_25_333333_500x100.png) 50% 50% repeat-x; font-weight: bold; color: #eeeeee; }
+
+.unitDisplay .unitID:hover, .unitDisplay.ui-selecting .unitID { border: 1px solid #59b4d4; border-top: none; background: #0078a3 url(ui-darkness/images/ui-bg_glass_40_0078a3_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; cursor:pointer; }
+
+.unitDisplay.ui-selected .unitID { border: 1px solid #ffaf0f; border-top:none; background: #f58400 url(ui-darkness/images/ui-bg_inset-soft_30_f58400_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; }
+
+#openUnitStatus{
+	position: absolute;
+	bottom: 2px;
+	display: block;
+	width: 198px;
+	 -moz-border-bottom-left-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+	-moz-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#unitStatuses{
+	width: 100% !important;	
+}
+
+#unitStatuses.tablesorter tbody td{
+	color: #FFF;
+	background-color: #333;
+}
+
+#unitStatuses.tablesorter thead tr th{
+	background-color: #222;
+}
+
+#unitStatuses.tablesorter thead tr .headerSortDown, #unitStatuses.tablesorter thead tr .headerSortUp{
+	background-color: #8dbdd8;
+}

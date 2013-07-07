@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link rel="STYLESHEET" type="text/css" href="style.css">
+<link rel="STYLESHEET" type="text/css" href="ui-darkness/jquery-ui-1.8.22.custom.css">
+
+<script src="jquery-1.8.3.js" type="text/javascript"></script>
+<script src="jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+<script src="socket.io.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+</head>
+
+<body>
+    <div id="connect">Connect</div>
+    <div id="disconnect">Disconnect</div>
+    <div id="heartbeat">Emit Heartbeat</div>
+</body>
+
+</html>
+
+<script>
+    var properties=["name", "playerID", "playerInVehicle", "sirenOn", "street1", "street2", "unitID", "x", "y", "z"];
+    var socket;
+    
+    $(function(){
+        $.each(properties, function(index, value){
+            var label=$("<label for='"+value+"'>"+value+"</label>").addClass("fakeGameLabel");
+            var el=$("<input type='text' value='"+value+"' id='"+value+"' name='"+value+"'>").addClass("fakeGameInput");
+            $("body").append(label).append(el);
+        });
+        
+        $("#connect").button().click(function(){
+            socket=io.connect('http://'+window.location.host+':8415/server');
+            socket.on("GetUnitID", function(){
+                socket.emit("unitID", {data: {unitID:$("#unitID").val()}});
+            });
+            socket.on("SetGpsPoint", function(data){
+                console.log(data);
+            });
+        });
+        $("#disconnect").button().click(function(){
+            socket.emit("disconnect");
+        });
+        $("#heartbeat").button().click(function(){
+            var response={};
+            $.each(properties, function(index, value){
+                response[value]=$("#"+value).val();
+            });
+            socket.emit("playerHeartbeat", {data: response});
+            console.log(response);
+        });
+    });
+</script>
