@@ -9,7 +9,7 @@ $(function(){
 	var titleSet={};
     var waypoints={};
     var unitWaypoints={};
-    socket=io.connect('http://'+window.location.host+':8415/client');
+    socket=io.connect('http://gtacad.aws.af.cm:8415/client');
     
     var policeMarkerIcon = {
         url: "blips/radar_police2.fw.png",
